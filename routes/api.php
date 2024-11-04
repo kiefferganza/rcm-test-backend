@@ -19,3 +19,7 @@ Route::post('logout', [AuthAPIController::class, 'logout'])->middleware('auth:ap
 
 Route::resource('users', App\Http\Controllers\API\UserAPIController::class)
     ->except(['create', 'edit']);
+
+
+Route::resource('employees', App\Http\Controllers\API\EmployeeAPIController::class)
+    ->except(['create', 'edit']);
