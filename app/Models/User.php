@@ -19,9 +19,6 @@ class User extends Authenticatable
         'firstname',
         'lastname',
         'email',
-        'phone',
-        'type',
-        'status',
         'password',
     ];
 
@@ -29,8 +26,6 @@ class User extends Authenticatable
         'firstname' => 'string',
         'lastname' => 'string',
         'email' => 'string',
-        'phone' => 'string',
-        'type' => 'string',
         'status' => 'string',
     ];
 
@@ -38,9 +33,6 @@ class User extends Authenticatable
         'firstname' => 'required',
         'lastname' => 'required',
         'email' => 'required|email',
-        'phone' => 'required|min:8|max:11',
-        'type' => 'required|in:internal,external',
-        'status' => 'required|in:active,inactive',
         'password' => 'required|min:8',
     ];
 

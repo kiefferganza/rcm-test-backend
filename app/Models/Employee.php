@@ -13,24 +13,26 @@ class Employee extends Model
         'lastname',
         'email',
         'type',
-        'status'
+        'phone',
+        'status',
     ];
 
     protected $casts = [
         'firstname' => 'string',
         'lastname' => 'string',
         'email' => 'string',
+        'phone' => 'string',
         'type' => 'string',
-        'status' => 'string'
+        'status' => 'string',
     ];
 
     public static array $rules = [
         'firstname' => 'required',
         'lastname' => 'required',
         'email' => 'email|required',
+        'phone' => 'required',
         'type' => 'required|in:internal,external',
-        'status' => 'required in:active,inactive'
+        'status' => 'required in:active,inactive',
     ];
 
-    
 }

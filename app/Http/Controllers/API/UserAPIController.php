@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
-use App\Http\Requests\API\CreateUserAPIRequest;
-use App\Http\Requests\API\UpdateUserAPIRequest;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\JsonResponse;
@@ -37,7 +35,7 @@ class UserAPIController extends AppBaseController
      * Store a newly created User in storage.
      * POST /users
      */
-    public function store(CreateUserAPIRequest $request): JsonResponse
+    public function store(Request $request): JsonResponse
     {
         $input = $request->all();
 
@@ -66,7 +64,7 @@ class UserAPIController extends AppBaseController
      * Update the specified User in storage.
      * PUT/PATCH /users/{id}
      */
-    public function update($id, UpdateUserAPIRequest $request): JsonResponse
+    public function update($id, Request $request): JsonResponse
     {
         $input = $request->all();
 
