@@ -15,11 +15,13 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::post('login', [AuthAPIController::class, 'login']);
-Route::post('logout', [AuthAPIController::class, 'logout'])->middleware('auth:api');
 
 Route::resource('users', App\Http\Controllers\API\UserAPIController::class)
     ->except(['create', 'edit']);
 
+Route::middleware('auth:api')->group(function () {
+    Route::post('logout', [AuthAPIController::class, 'logout']);
 
-Route::resource('employees', App\Http\Controllers\API\EmployeeAPIController::class)
-    ->except(['create', 'edit']);
+    Route::resource('employees', App\Http\Controllers\API\EmployeeAPIController::class)
+        ->except(['create', 'edit']);
+});
