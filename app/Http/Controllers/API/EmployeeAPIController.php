@@ -26,13 +26,9 @@ class EmployeeAPIController extends AppBaseController
      */
     public function index(Request $request): JsonResponse
     {
-        $employees = $this->employeeRepository->all(
-            $request->except(['skip', 'limit']),
-            $request->get('skip'),
-            $request->get('limit')
-        );
+        $employees = $this->employeeRepository->paginate(10);
 
-        return $this->sendResponse($employees->toArray(), 'Employees retrieved successfully');
+        return $this->sendResponse($employees, 'Employees retrieved successfully');
     }
 
     /**
