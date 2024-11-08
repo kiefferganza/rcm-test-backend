@@ -26,6 +26,10 @@ class EmployeeAPIController extends AppBaseController
      */
     public function index(Request $request): JsonResponse
     {
+        if($request->has('search')) {
+            $employees = Employee::search($request->search)->paginate(10);
+            return $this->sendResponse($employees, 'Employees retrieved successfully');
+        }
         $employees = $this->employeeRepository->paginate(10);
 
         return $this->sendResponse($employees, 'Employees retrieved successfully');

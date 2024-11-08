@@ -49,7 +49,6 @@ class Employee extends Model
         'phone' => $this->phone,
         'type' => $this->type,
         'status' => $this->status,
-        'created_at' => $this->created_at->timestamp,
     ]);
 }
 
